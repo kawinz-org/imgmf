@@ -1,5 +1,6 @@
 from os.path import exists
 from os import remove
+import sys
 import json
 
 SECRET_STORAGE = './tokens.json'
@@ -37,3 +38,6 @@ def store_secret(secret: str):
         f.write(json.dumps(raw_file, indent=4))
         f.close()
     print('Wrote new Secret')
+
+if __name__ == '__main__':
+    store_secret(sys.argv[1])
